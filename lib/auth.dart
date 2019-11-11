@@ -2,20 +2,20 @@ import 'package:firebase_tutorials/login.dart';
 import 'package:firebase_tutorials/signup.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen3 extends StatefulWidget {
+class AuthScreen extends StatefulWidget {
   @override
-  _LoginScreen3State createState() => new _LoginScreen3State();
+  _AuthScreenState createState() => new _AuthScreenState();
 }
 
-class _LoginScreen3State extends State<LoginScreen3>
-    with TickerProviderStateMixin {
+class _AuthScreenState extends State<AuthScreen> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
   }
 
-  Widget authPage() {
-    return new Container(
+  @override
+  Widget build(BuildContext context) {
+    return Container(
       height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
         color: Colors.redAccent,
@@ -31,10 +31,10 @@ class _LoginScreen3State extends State<LoginScreen3>
           Container(
             padding: EdgeInsets.only(top: 250.0),
             child: Center(
-              child: Icon(
-                Icons.headset_mic,
-                color: Colors.white,
-                size: 40.0,
+              child: ImageIcon(
+                AssetImage("assets/images/1.png"),
+                color: Colors.blue,
+                size: 80.0,
               ),
             ),
           ),
@@ -72,7 +72,8 @@ class _LoginScreen3State extends State<LoginScreen3>
                         borderRadius: new BorderRadius.circular(30.0)),
                     color: Colors.redAccent,
                     highlightedBorderColor: Colors.white,
-                    onPressed: () => gotoSignup(),
+                    onPressed: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignUpPage())),
                     child: new Container(
                       padding: const EdgeInsets.symmetric(
                         vertical: 20.0,
@@ -109,7 +110,8 @@ class _LoginScreen3State extends State<LoginScreen3>
                     shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(30.0)),
                     color: Colors.white,
-                    onPressed: () => gotoLogin(),
+                    onPressed: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LoginPage())),
                     child: new Container(
                       padding: const EdgeInsets.symmetric(
                         vertical: 20.0,
@@ -138,38 +140,5 @@ class _LoginScreen3State extends State<LoginScreen3>
         ],
       ),
     );
-  }
-
-  gotoLogin() {
-    //controller_0To1.forward(from: 0.0);
-    _controller.animateToPage(
-      0,
-      duration: Duration(milliseconds: 800),
-      curve: Curves.bounceOut,
-    );
-  }
-
-  gotoSignup() {
-    //controller_minus1To0.reverse(from: 0.0);
-    _controller.animateToPage(
-      2,
-      duration: Duration(milliseconds: 800),
-      curve: Curves.bounceOut,
-    );
-  }
-
-  PageController _controller =
-      new PageController(initialPage: 1, viewportFraction: 1.0);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        height: MediaQuery.of(context).size.height,
-        child: PageView(
-          controller: _controller,
-          physics: new AlwaysScrollableScrollPhysics(),
-          children: <Widget>[LoginPage(), authPage(), SignUpPage()],
-          scrollDirection: Axis.horizontal,
-        ));
   }
 }
