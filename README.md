@@ -1,16 +1,18 @@
-# firebase_tutorials
+# Flutter firebase tutorials
 
-A new Flutter project.
 
-## Getting Started
+### Videos
 
-This project is a starting point for a Flutter application.
+- [Adding Firebase to flutter](https://youtu.be/5bqndRRTvQc) 
+- [Flutter Firebase Phone Authentication](https://youtu.be/5bqndRRTvQc) 
 
-A few resources to get you started if this is your first Flutter project:
+### Screenshots
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+![FlutterFire](https://i.imgur.com/i1UrTx0.png)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+### Looking for complete eCommerce Solution 
+
+- http://bit.ly/flutter-ecommerce-firebase
+
+![Shoppers](https://i.imgur.com/c8Ghzt7.png)
