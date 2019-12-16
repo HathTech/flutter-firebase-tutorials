@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_tutorials/app.dart';
+import 'package:firebase_tutorials/stripe.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -22,6 +23,17 @@ class HomePage extends StatelessWidget {
               _firebaseAuth.signOut();
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => App()));
+            },
+          ),
+          RaisedButton(
+            child: Text("Make Payment"),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => StripePaymentMethod(
+                            amount: 900.0,
+                          )));
             },
           ),
           Center(

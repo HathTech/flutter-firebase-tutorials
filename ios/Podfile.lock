@@ -9,6 +9,10 @@ PODS:
     - Firebase/Core
     - Firebase/Firestore (~> 6.0)
     - Flutter
+  - cloud_functions (0.0.1):
+    - Firebase/Core
+    - Firebase/Functions (~> 6.0)
+    - Flutter
   - Firebase/Auth (6.12.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.3.1)
@@ -20,6 +24,9 @@ PODS:
   - Firebase/Firestore (6.12.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 1.7.0)
+  - Firebase/Functions (6.12.0):
+    - Firebase/CoreOnly
+    - FirebaseFunctions (~> 2.5.1)
   - firebase_auth (0.0.1):
     - Firebase/Auth (~> 6.0)
     - Firebase/Core
@@ -70,6 +77,10 @@ PODS:
     - leveldb-library (~> 1.22)
     - nanopb (~> 0.3.901)
     - Protobuf (>= 3.9.2, ~> 3.9)
+  - FirebaseFunctions (2.5.1):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 6.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseInstanceID (4.2.7):
     - FirebaseCore (~> 6.0)
     - GoogleUtilities/Environment (~> 6.0)
@@ -129,13 +140,19 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - Protobuf (3.10.0)
+  - Stripe (18.3.0)
+  - stripe_payment (1.0.0):
+    - Flutter
+    - Stripe (>= 18.0.0)
 
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
+  - cloud_functions (from `.symlinks/plugins/cloud_functions/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `.symlinks/flutter/ios`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
+  - stripe_payment (from `.symlinks/plugins/stripe_payment/ios`)
 
 SPEC REPOS:
   trunk:
@@ -148,6 +165,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseCoreDiagnosticsInterop
     - FirebaseFirestore
+    - FirebaseFunctions
     - FirebaseInstanceID
     - GoogleAppMeasurement
     - GoogleDataTransport
@@ -159,10 +177,13 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
+    - Stripe
 
 EXTERNAL SOURCES:
   cloud_firestore:
     :path: ".symlinks/plugins/cloud_firestore/ios"
+  cloud_functions:
+    :path: ".symlinks/plugins/cloud_functions/ios"
   firebase_auth:
     :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
@@ -171,10 +192,13 @@ EXTERNAL SOURCES:
     :path: ".symlinks/flutter/ios"
   fluttertoast:
     :path: ".symlinks/plugins/fluttertoast/ios"
+  stripe_payment:
+    :path: ".symlinks/plugins/stripe_payment/ios"
 
 SPEC CHECKSUMS:
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   cloud_firestore: 187530401afa261d255791ea75580591e345fa7b
+  cloud_functions: c4bd92b7867760f21811061e8a2ef34a1a4e764c
   Firebase: da031bc7012374e3bed17a6731b89327b29863b9
   firebase_auth: 3735c80c0a290fd04a34e9bbbecbeec8f79a216a
   firebase_core: ebf6a934345d646bf7820a6685427bb3741f01ed
@@ -185,6 +209,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: af29e43048607588c050889d19204f4d7b758c9f
   FirebaseCoreDiagnosticsInterop: e9b1b023157e3a2fc6418b5cb601e79b9af7b3a0
   FirebaseFirestore: 1c7ed32c09d6b0148034e035d0c07783ca45bac3
+  FirebaseFunctions: 5af7c35d1c5e41608fecbb667eb6c4e672e318d0
   FirebaseInstanceID: ebd2ea79ee38db0cb5f5167b17a0d387e1cc7b6e
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   fluttertoast: b644586ef3b16f67fae9a1f8754cef6b2d6b634b
@@ -198,6 +223,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
+  Stripe: 35b9a54e698c82163d2ef105187a996d009fd386
+  stripe_payment: 1baf1bbf556f7a35c210dc9e2eccf2075947b6be
 
 PODFILE CHECKSUM: 097b64e1c00903a097fa4231dd174c10dfb3b629
 
