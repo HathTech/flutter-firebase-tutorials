@@ -13,7 +13,7 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  FirebaseUser user;
+  User user;
 
   @override
   void initState() {
@@ -22,7 +22,7 @@ class _AppState extends State<App> {
   }
 
   void getCurrentUser() async {
-    FirebaseUser _user = await _firebaseAuth.currentUser();
+    User _user = _firebaseAuth.currentUser;
     setState(() {
       user = _user;
     });
@@ -32,10 +32,11 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     print(user);
     return Scaffold(
-        body: user != null
-            ? HomePage(
-                user: user,
-              )
-            : AuthScreen());
+      body: user != null
+          ? HomePage(
+              user: user,
+            )
+          : AuthScreen(),
+    );
   }
 }

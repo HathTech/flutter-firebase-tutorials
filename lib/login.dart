@@ -10,7 +10,6 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
             color: Colors.white,
             image: DecorationImage(
@@ -365,7 +364,10 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
-              PhoneLogin()
+              PhoneLogin(),
+              SizedBox(
+                height: 100,
+              )
             ],
           ),
         ),

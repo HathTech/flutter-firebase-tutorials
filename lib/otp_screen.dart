@@ -144,7 +144,6 @@ class _OTPScreenState extends State<OTPScreen> {
         msg: message,
         toastLength: Toast.LENGTH_LONG,
         gravity: ToastGravity.CENTER,
-        timeInSecForIos: 2,
         backgroundColor: color,
         textColor: Colors.white,
         fontSize: 16.0);
@@ -158,7 +157,7 @@ class _OTPScreenState extends State<OTPScreen> {
         (AuthCredential phoneAuthCredential) {
       _firebaseAuth
           .signInWithCredential(phoneAuthCredential)
-          .then((AuthResult value) {
+          .then((UserCredential value) {
         if (value.user != null) {
           // Handle loogged in state
           print(value.user.phoneNumber);
@@ -177,8 +176,7 @@ class _OTPScreenState extends State<OTPScreen> {
         showToast("Try again in sometime", Colors.red);
       });
     };
-    final PhoneVerificationFailed verificationFailed =
-        (AuthException authException) {
+    final PhoneVerificationFailed verificationFailed = (authException) {
       showToast(authException.message, Colors.red);
       setState(() {
         isCodeSent = false;
@@ -212,12 +210,12 @@ class _OTPScreenState extends State<OTPScreen> {
   }
 
   void _onFormSubmitted() async {
-    AuthCredential _authCredential = PhoneAuthProvider.getCredential(
+    AuthCredential _authCredential = PhoneAuthProvider.credential(
         verificationId: _verificationId, smsCode: _pinEditingController.text);
 
     _firebaseAuth
         .signInWithCredential(_authCredential)
-        .then((AuthResult value) {
+        .then((UserCredential value) {
       if (value.user != null) {
         // Handle loogged in state
         print(value.user.phoneNumber);

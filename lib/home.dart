@@ -3,7 +3,7 @@ import 'package:firebase_tutorials/app.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  final FirebaseUser user;
+  final User user;
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   HomePage({Key key, @required this.user})
@@ -13,7 +13,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Home Screen'),
+      ),
       body: Column(
         children: <Widget>[
           RaisedButton(
